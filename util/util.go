@@ -25,3 +25,18 @@ func ParseHTTPResponse(data []byte, request *http.Request) (*http.Response, erro
 	}
 	return response, nil
 }
+
+func ExtractLastResponse(data []byte) []byte {
+	marker := []byte("HTTP/")
+
+	// Find the last occurrence of the marker.
+	position := bytes.LastIndex(data, marker)
+
+	// If marker not found, return nil.
+	if position == -1 {
+		return nil
+	}
+
+	// Return the data slice starting from the found position.
+	return data[position:]
+}

@@ -19,7 +19,7 @@ static __inline void process_syscall_accept(struct pt_regs *ctx, u64 id, const s
     {
         return;
     }
-    bpf_printk("[process_syscall_accept]:Got a new connection on fd:%d",ret_fd);
+    bpf_printk("[process_syscall_accept]:Got a new connection on fd:%d", ret_fd);
 
     struct conn_info_t conn_info = {};
     u32 pid = id >> 32;

@@ -22,6 +22,7 @@ import (
 	"io"
 	"mime"
 	"mime/multipart"
+	"net/http"
 	"os"
 	"strings"
 	"sync"
@@ -62,6 +63,9 @@ func (factory *Factory) HandleReadyConnections() {
 			if len(tracker.sentBuf) == 0 && len(tracker.recvBuf) == 0 {
 				continue
 			}
+
+			// fmt.Printf(""========================>\nFound HTTP payload\nRequest->\n%s\n\nResponse->\n%s\n\n<========================\n", tracker.recvBuf, tracker.sentBuf)
+			fmt.Printf("========================>\nFound HTTP payload\nResponse->\n%s\n\n<========================\n", tracker.sentBuf)
 
 			parsedHttpReq, err := util.ParseHTTPRequest(tracker.recvBuf)
 			if err != nil {
@@ -122,11 +126,17 @@ func (factory *Factory) HandleReadyConnections() {
 			}
 
 			// factory.logger.Debug(string(reqBody))
+			finalResponseData := util.ExtractLastResponse(tracker.sentBuf)
+			var parsedHttpRes *http.Response
+			if finalResponseData != nil || len(finalResponseData) != 0 {
 
-			parsedHttpRes, err := util.ParseHTTPResponse(tracker.sentBuf, parsedHttpReq)
-			if err != nil {
-				factory.logger.Error("failed to parse the http response from byte array", zap.Error(err))
-				continue
+				parsedHttpRes, err = util.ParseHTTPResponse(finalResponseData, parsedHttpReq)
+				if err != nil {
+					factory.logger.Error("failed to parse the http response from byte array", zap.Error(err))
+					continue
+				}
+			} else {
+				factory.logger.Error("failed to locate the last HTTP response")
 			}
 
 			fmt.Printf("Response:%v\n", parsedHttpRes)

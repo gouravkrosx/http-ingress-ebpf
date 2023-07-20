@@ -84,8 +84,8 @@ func (conn *Tracker) IsComplete() bool {
 func (conn *Tracker) Malformed() bool {
 	conn.mutex.RLock()
 	defer conn.mutex.RUnlock()
-	conn.logger.Debug("data loss of ingress request message", zap.Any("bytes read in ebpf", conn.totalReadBytes), zap.Any("bytes recieved in userspace", conn.recvBytes))
-	conn.logger.Debug("data loss of ingress response message", zap.Any("bytes written in ebpf", conn.totalWrittenBytes), zap.Any("bytes sent to user", conn.sentBytes))
+	// conn.logger.Debug("data loss of ingress request message", zap.Any("bytes read in ebpf", conn.totalReadBytes), zap.Any("bytes recieved in userspace", conn.recvBytes))
+	// conn.logger.Debug("data loss of ingress response message", zap.Any("bytes written in ebpf", conn.totalWrittenBytes), zap.Any("bytes sent to user", conn.sentBytes))
 	// conn.logger.Debug(zap.Any("Request buffer", string(conn.recvBuf)))
 	// conn.logger.Debug(zap.Any("Response buffer", string(conn.sentBuf)))
 	return conn.closeTimestamp != 0 &&

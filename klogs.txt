@@ -1,0 +1,786 @@
+            main-14484   [001] d..31  5407.636098: bpf_trace_printk: [sys_accept4_entry]:called for [PID:13303]
+
+            main-14484   [001] d..31  5407.636117: bpf_trace_printk: [sys_accept4_exit]:called for [PID:13303]
+
+            main-14484   [001] d..31  5407.636118: bpf_trace_printk: [process_syscall_accept]:Got a new connection on fd:4
+            main-14484   [001] d..31  5407.636119: bpf_trace_printk: Submitting the open event to the userspace
+            main-14484   [001] d..31  5407.636173: bpf_trace_printk: [sys_accept4_entry]:called for [PID:13303]
+
+            main-14484   [001] d..31  5407.636178: bpf_trace_printk: [sys_accept4_exit]:called for [PID:13303]
+
+            main-13305   [002] d..31  5407.636209: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13305   [002] d..31  5407.636215: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951993
+            main-13305   [002] d..31  5407.636216: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13305   [002] d..31  5407.636219: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13305   [002] d..31  5407.636286: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13305   [002] d..31  5407.636287: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951993
+            main-13305   [002] d..31  5407.636288: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13305   [002] d..31  5407.636288: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13305   [002] d..31  5407.636293: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13305   [002] d..31  5407.636294: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951993
+            main-13305   [002] d..31  5407.636295: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13305   [002] d..31  5407.636295: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13305   [002] d..31  5407.636298: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13305   [002] d..31  5407.636299: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951993
+            main-13305   [002] d..31  5407.636299: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13305   [002] d..31  5407.636300: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13305   [002] d..31  5407.636306: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13305   [002] d..31  5407.636308: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951993
+            main-13305   [002] d..31  5407.636308: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13305   [002] d..31  5407.636309: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13305   [002] d..31  5407.636312: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13305   [002] d..31  5407.636313: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951993
+            main-13305   [002] d..31  5407.636313: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13305   [002] d..31  5407.636314: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13305   [002] d..31  5407.636316: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13305   [002] d..31  5407.636318: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951993
+            main-13305   [002] d..31  5407.636318: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13305   [002] d..31  5407.636319: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13305   [002] d..31  5407.636321: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13305   [002] d..31  5407.636322: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951993
+            main-13305   [002] d..31  5407.636323: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13305   [002] d..31  5407.636323: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13305   [002] d..31  5407.636332: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13305   [002] d..31  5407.636334: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951993
+            main-13305   [002] d..31  5407.636334: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13305   [002] d..31  5407.636335: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13305   [002] d..31  5407.636337: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13305   [002] d..31  5407.636338: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951993
+            main-13305   [002] d..31  5407.636338: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13305   [002] d..31  5407.636339: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13305   [002] d..31  5407.636342: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13305   [002] d..31  5407.636342: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951993
+            main-13305   [002] d..31  5407.636343: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13305   [002] d..31  5407.636343: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13305   [002] d..31  5407.636346: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13305   [002] d..31  5407.636347: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951993
+            main-13305   [002] d..31  5407.636347: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13305   [002] d..31  5407.636348: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13305   [002] d..31  5407.636350: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13305   [002] d..31  5407.636351: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951993
+            main-13305   [002] d..31  5407.636351: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13305   [002] d..31  5407.636352: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13305   [002] d..31  5407.636355: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13305   [002] d..31  5407.636356: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951993
+            main-13305   [002] d..31  5407.636357: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13305   [002] d..31  5407.636358: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13305   [002] d..31  5407.636362: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13305   [002] d..31  5407.636363: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951993
+            main-13305   [002] d..31  5407.636363: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13305   [002] d..31  5407.636364: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13305   [002] d..31  5407.636367: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13305   [002] d..31  5407.636368: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951993
+            main-13305   [002] d..31  5407.636368: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13305   [002] d..31  5407.636369: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13305   [002] d..31  5407.636385: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13305   [002] d..31  5407.636408: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951993
+            main-13305   [002] d..31  5407.636408: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:195
+            main-13305   [002] d..31  5407.636409: bpf_trace_printk: Submitting the data event with buffer size:195 to the userspace
+            main-13305   [002] d..31  5407.636411: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13305   [002] d..31  5407.636415: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951993
+            main-13305   [002] d..31  5407.636416: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13305   [002] d..31  5407.636416: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13305   [002] d..31  5407.636418: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13305   [002] d..31  5407.636420: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951993
+            main-13305   [002] d..31  5407.636420: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13305   [002] d..31  5407.636421: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13305   [002] d..31  5407.636423: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13305   [002] d..31  5407.636424: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951993
+            main-13305   [002] d..31  5407.636424: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13305   [002] d..31  5407.636425: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13305   [002] d..31  5407.636428: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13305   [002] d..31  5407.636429: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951993
+            main-13305   [002] d..31  5407.636429: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13305   [002] d..31  5407.636430: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13305   [002] d..31  5407.636432: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13305   [002] d..31  5407.636433: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951993
+            main-13305   [002] d..31  5407.636433: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13305   [002] d..31  5407.636434: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13305   [002] d..31  5407.636437: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13305   [002] d..31  5407.636438: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951993
+            main-13305   [002] d..31  5407.636438: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13305   [002] d..31  5407.636439: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13305   [002] d..31  5407.636441: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13305   [002] d..31  5407.636442: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951993
+            main-13305   [002] d..31  5407.636443: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13305   [002] d..31  5407.636443: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13305   [002] d..31  5407.636446: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13305   [002] d..31  5407.636450: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951993
+            main-13305   [002] d..31  5407.636450: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13305   [002] d..31  5407.636451: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13305   [002] d..31  5407.636453: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13305   [002] d..31  5407.636454: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951993
+            main-13305   [002] d..31  5407.636454: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13305   [002] d..31  5407.636455: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13305   [002] d..31  5407.636458: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13305   [002] d..31  5407.636459: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951993
+            main-13305   [002] d..31  5407.636459: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13305   [002] d..31  5407.636460: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13305   [002] d..31  5407.636462: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13305   [002] d..31  5407.636463: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951993
+CPU:2 [LOST 55 EVENTS]
+            main-13305   [002] d..31  5407.636605: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951993
+            main-13305   [002] d..31  5407.636606: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13305   [002] d..31  5407.636607: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13305   [002] d..31  5407.636610: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13305   [002] d..31  5407.636612: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951993
+            main-13305   [002] d..31  5407.636612: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13305   [002] d..31  5407.636613: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13305   [002] d..31  5407.636617: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13305   [002] d..31  5407.636618: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951993
+            main-13305   [002] d..31  5407.636619: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13305   [002] d..31  5407.636620: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13305   [002] d..31  5407.636623: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13305   [002] d..31  5407.636625: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951993
+            main-13305   [002] d..31  5407.636625: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13305   [002] d..31  5407.636626: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13305   [002] d..31  5407.636629: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13305   [002] d..31  5407.636631: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951993
+            main-13305   [002] d..31  5407.636631: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13305   [002] d..31  5407.636632: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13305   [002] d..31  5407.636636: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13305   [002] d..31  5407.636637: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951993
+            main-13305   [002] d..31  5407.636638: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13305   [002] d..31  5407.636639: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13305   [002] d..31  5407.636642: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13305   [002] d..31  5407.636643: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951993
+            main-13305   [002] d..31  5407.636644: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13305   [002] d..31  5407.636645: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13305   [002] d..31  5407.636648: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13305   [002] d..31  5407.636656: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951993
+            main-13305   [002] d..31  5407.636657: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13305   [002] d..31  5407.636658: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13305   [002] d..31  5407.636661: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13305   [002] d..31  5407.636663: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951993
+            main-13305   [002] d..31  5407.636663: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13305   [002] d..31  5407.636664: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13305   [002] d..31  5407.636668: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13305   [002] d..31  5407.636669: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951993
+            main-13305   [002] d..31  5407.636669: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13305   [002] d..31  5407.636670: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13305   [002] d..31  5407.636674: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13305   [002] d..31  5407.636675: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951993
+            main-13305   [002] d..31  5407.636675: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13305   [002] d..31  5407.636676: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13305   [002] d..31  5407.636679: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13305   [002] d..31  5407.636681: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951993
+            main-13305   [002] d..31  5407.636681: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13305   [002] d..31  5407.636682: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13305   [002] d..31  5407.636685: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13305   [002] d..31  5407.636687: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951993
+            main-13305   [002] d..31  5407.636687: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13305   [002] d..31  5407.636688: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13305   [002] d..31  5407.636691: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13305   [002] d..31  5407.636693: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951993
+            main-13305   [002] d..31  5407.636694: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13305   [002] d..31  5407.636694: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13305   [002] d..31  5407.636698: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13305   [002] d..31  5407.636699: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951993
+            main-13305   [002] d..31  5407.636700: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13305   [002] d..31  5407.636701: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13305   [002] d..31  5407.636705: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13305   [002] d..31  5407.636706: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951993
+            main-13305   [002] d..31  5407.636707: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13305   [002] d..31  5407.636707: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13305   [002] d..31  5407.636710: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13305   [002] d..31  5407.636711: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951993
+            main-13305   [002] d..31  5407.636712: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13305   [002] d..31  5407.636712: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13305   [002] d..31  5407.636715: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13305   [002] d..31  5407.636775: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951993
+            main-13305   [002] d..31  5407.636776: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13305   [002] d..31  5407.636777: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13305   [002] d..31  5407.636780: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13305   [002] d..31  5407.636783: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951993
+            main-13305   [002] d..31  5407.636783: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13305   [002] d..31  5407.636784: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13305   [002] d..31  5407.636786: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13305   [002] d..31  5407.636787: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951993
+            main-13305   [002] d..31  5407.636788: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13305   [002] d..31  5407.636788: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13305   [002] d..31  5407.636792: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13305   [002] d..31  5407.636793: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951993
+            main-13305   [002] d..31  5407.636793: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13305   [002] d..31  5407.636794: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13305   [002] d..31  5407.636796: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13305   [002] d..31  5407.636797: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951993
+            main-13305   [002] d..31  5407.636797: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13305   [002] d..31  5407.636798: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13305   [002] d..31  5407.636801: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13305   [002] d..31  5407.636802: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951993
+            main-13305   [002] d..31  5407.636802: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13305   [002] d..31  5407.636802: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13305   [002] d..31  5407.636805: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13305   [002] d..31  5407.636806: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951993
+            main-13305   [002] d..31  5407.636807: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13305   [002] d..31  5407.636807: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13305   [002] d..31  5407.636855: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13305   [002] d..31  5407.636857: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951993
+            main-13305   [002] d..31  5407.636857: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13305   [002] d..31  5407.636858: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13305   [002] d..31  5407.636860: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13305   [002] d..31  5407.636861: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951993
+            main-13305   [002] d..31  5407.636862: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13305   [002] d..31  5407.636862: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13305   [002] d..31  5407.636864: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13305   [002] d..31  5407.636865: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951993
+            main-13305   [002] d..31  5407.636865: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13305   [002] d..31  5407.636866: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13305   [002] d..31  5407.636868: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13305   [002] d..31  5407.636869: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951993
+            main-13305   [002] d..31  5407.636869: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+CPU:2 [LOST 55 EVENTS]
+            main-13305   [002] d..31  5407.636925: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13305   [002] d..31  5407.636925: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13305   [002] d..31  5407.636928: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13305   [002] d..31  5407.636929: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951993
+            main-13305   [002] d..31  5407.636929: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13305   [002] d..31  5407.636930: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13305   [002] d..31  5407.636932: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13305   [002] d..31  5407.636933: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951993
+            main-13305   [002] d..31  5407.636933: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13305   [002] d..31  5407.636934: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13305   [002] d..31  5407.636936: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13305   [002] d..31  5407.636937: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951993
+            main-13305   [002] d..31  5407.636937: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13305   [002] d..31  5407.636938: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13305   [002] d..31  5407.636941: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13305   [002] d..31  5407.636942: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951993
+            main-13305   [002] d..31  5407.636942: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13305   [002] d..31  5407.636943: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13305   [002] d..31  5407.636946: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13305   [002] d..31  5407.636947: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951993
+            main-13305   [002] d..31  5407.636947: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13305   [002] d..31  5407.636948: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13305   [002] d..31  5407.636951: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13305   [002] d..31  5407.636952: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951993
+            main-13305   [002] d..31  5407.636953: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13305   [002] d..31  5407.636953: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13305   [002] d..31  5407.636956: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13305   [002] d..31  5407.636957: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951993
+            main-13305   [002] d..31  5407.636957: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13305   [002] d..31  5407.636958: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13305   [002] d..31  5407.636961: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13305   [002] d..31  5407.636962: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951993
+            main-13305   [002] d..31  5407.636963: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13305   [002] d..31  5407.636963: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13305   [002] d..31  5407.636966: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13305   [002] d..31  5407.636967: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951993
+            main-13305   [002] d..31  5407.636967: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13305   [002] d..31  5407.636968: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13305   [002] d..31  5407.636971: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13305   [002] d..31  5407.636972: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951993
+            main-13305   [002] d..31  5407.636972: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13305   [002] d..31  5407.636973: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13305   [002] d..31  5407.636976: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13305   [002] d..31  5407.636977: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951993
+            main-13305   [002] d..31  5407.636977: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13305   [002] d..31  5407.636978: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13305   [002] d..31  5407.636981: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13305   [002] d..31  5407.636982: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951993
+            main-13305   [002] d..31  5407.636982: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13305   [002] d..31  5407.636983: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13305   [002] d..31  5407.636985: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13305   [002] d..31  5407.636987: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951993
+            main-13305   [002] d..31  5407.636987: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13305   [002] d..31  5407.636987: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13305   [002] d..31  5407.636990: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+CPU:2 [LOST 55 EVENTS]
+            main-13305   [002] d..31  5407.637060: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13305   [002] d..31  5407.637061: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951993
+            main-13305   [002] d..31  5407.637061: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13305   [002] d..31  5407.637061: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13305   [002] d..31  5407.637064: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13305   [002] d..31  5407.637065: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951993
+            main-13305   [002] d..31  5407.637065: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13305   [002] d..31  5407.637065: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13305   [002] d..31  5407.637068: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13305   [002] d..31  5407.637069: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951993
+            main-13305   [002] d..31  5407.637069: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13305   [002] d..31  5407.637070: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13305   [002] d..31  5407.637072: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13305   [002] d..31  5407.637073: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951993
+            main-13305   [002] d..31  5407.637073: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13305   [002] d..31  5407.637074: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13305   [002] d..31  5407.637076: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13305   [002] d..31  5407.637077: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951993
+            main-13305   [002] d..31  5407.637077: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13305   [002] d..31  5407.637078: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13305   [002] d..31  5407.637080: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13305   [002] d..31  5407.637081: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951993
+            main-13305   [002] d..31  5407.637081: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13305   [002] d..31  5407.637081: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13305   [002] d..31  5407.637083: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13305   [002] d..31  5407.637084: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951993
+            main-13305   [002] d..31  5407.637085: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13305   [002] d..31  5407.637085: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13305   [002] d..31  5407.637087: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13305   [002] d..31  5407.637088: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951993
+            main-13305   [002] d..31  5407.637088: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13305   [002] d..31  5407.637089: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13305   [002] d..31  5407.637091: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13305   [002] d..31  5407.637092: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951993
+            main-13305   [002] d..31  5407.637092: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13305   [002] d..31  5407.637093: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13305   [002] d..31  5407.637095: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13305   [002] d..31  5407.637096: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951993
+            main-13305   [002] d..31  5407.637096: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13305   [002] d..31  5407.637097: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13305   [002] d..31  5407.637099: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13305   [002] d..31  5407.637100: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951993
+            main-13305   [002] d..31  5407.637101: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13305   [002] d..31  5407.637101: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13305   [002] d..31  5407.637103: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13305   [002] d..31  5407.637104: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951993
+            main-13305   [002] d..31  5407.637105: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13305   [002] d..31  5407.637105: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13305   [002] d..31  5407.637108: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13305   [002] d..31  5407.637109: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951993
+            main-13305   [002] d..31  5407.637109: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13305   [002] d..31  5407.637109: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13305   [002] d..31  5407.637112: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13305   [002] d..31  5407.637113: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951993
+            main-13305   [002] d..31  5407.637113: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13305   [002] d..31  5407.637113: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13305   [002] d..31  5407.637115: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13305   [002] d..31  5407.637116: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951993
+            main-13305   [002] d..31  5407.637117: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13305   [002] d..31  5407.637117: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13305   [002] d..31  5407.637120: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13305   [002] d..31  5407.637120: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951993
+            main-13305   [002] d..31  5407.637121: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13305   [002] d..31  5407.637121: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13305   [002] d..31  5407.637124: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13305   [002] d..31  5407.637125: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951993
+            main-13305   [002] d..31  5407.637125: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13305   [002] d..31  5407.637125: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13305   [002] d..31  5407.637128: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13305   [002] d..31  5407.637129: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951993
+            main-13305   [002] d..31  5407.637129: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13305   [002] d..31  5407.637129: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13305   [002] d..31  5407.637132: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13305   [002] d..31  5407.637133: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951993
+            main-13305   [002] d..31  5407.637133: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13305   [002] d..31  5407.637133: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13303   [008] d..31  5407.637689: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13303   [008] d..31  5407.637698: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951991
+            main-13303   [008] d..31  5407.637699: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13303   [008] d..31  5407.637703: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13303   [008] d..31  5407.637726: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13303   [008] d..31  5407.637728: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951991
+            main-13303   [008] d..31  5407.637729: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13303   [008] d..31  5407.637729: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13303   [008] d..31  5407.637792: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13303   [008] d..31  5407.637796: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951991
+            main-13303   [008] d..31  5407.637797: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13303   [008] d..31  5407.637797: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13303   [008] d..31  5407.637803: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13303   [008] d..31  5407.637805: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951991
+            main-13303   [008] d..31  5407.637805: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13303   [008] d..31  5407.637806: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13303   [008] d..31  5407.637811: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13303   [008] d..31  5407.637813: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951991
+            main-13303   [008] d..31  5407.637814: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13303   [008] d..31  5407.637814: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13303   [008] d..31  5407.637819: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13303   [008] d..31  5407.637820: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951991
+            main-13303   [008] d..31  5407.637821: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13303   [008] d..31  5407.637822: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13303   [008] d..31  5407.637825: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13303   [008] d..31  5407.637827: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951991
+            main-13303   [008] d..31  5407.637827: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13303   [008] d..31  5407.637828: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13303   [008] d..31  5407.637832: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13303   [008] d..31  5407.637833: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951991
+            main-13303   [008] d..31  5407.637834: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13303   [008] d..31  5407.637835: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13303   [008] d..31  5407.637838: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13303   [008] d..31  5407.637839: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951991
+            main-13303   [008] d..31  5407.637840: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13303   [008] d..31  5407.637840: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13303   [008] d..31  5407.637844: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13303   [008] d..31  5407.637845: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951991
+            main-13303   [008] d..31  5407.637846: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13303   [008] d..31  5407.637847: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13303   [008] d..31  5407.637850: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13303   [008] d..31  5407.637852: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951991
+            main-13303   [008] d..31  5407.637852: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13303   [008] d..31  5407.637853: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13303   [008] d..31  5407.637857: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13303   [008] d..31  5407.637858: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951991
+            main-13303   [008] d..31  5407.637859: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13303   [008] d..31  5407.637860: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13303   [008] d..31  5407.637863: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13303   [008] d..31  5407.637865: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951991
+            main-13303   [008] d..31  5407.637865: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13303   [008] d..31  5407.637866: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13303   [008] d..31  5407.637870: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13303   [008] d..31  5407.637871: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951991
+            main-13303   [008] d..31  5407.637872: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13303   [008] d..31  5407.637873: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13303   [008] d..31  5407.637877: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13303   [008] d..31  5407.637879: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951991
+            main-13303   [008] d..31  5407.637879: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13303   [008] d..31  5407.637880: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13303   [008] d..31  5407.637884: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13303   [008] d..31  5407.637886: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951991
+            main-13303   [008] d..31  5407.637886: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13303   [008] d..31  5407.637887: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13303   [008] d..31  5407.637891: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13303   [008] d..31  5407.637892: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951991
+            main-13303   [008] d..31  5407.637893: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13303   [008] d..31  5407.637894: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13303   [008] d..31  5407.637897: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13303   [008] d..31  5407.637899: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951991
+            main-13303   [008] d..31  5407.637899: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13303   [008] d..31  5407.637900: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13303   [008] d..31  5407.637905: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13303   [008] d..31  5407.637906: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951991
+            main-13303   [008] d..31  5407.637907: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13303   [008] d..31  5407.637907: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13303   [008] d..31  5407.637911: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13303   [008] d..31  5407.637912: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951991
+            main-13303   [008] d..31  5407.637913: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13303   [008] d..31  5407.637913: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13303   [008] d..31  5407.637919: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13303   [008] d..31  5407.637920: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951991
+            main-13303   [008] d..31  5407.637921: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13303   [008] d..31  5407.637921: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13303   [008] d..31  5407.637925: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13303   [008] d..31  5407.637928: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951991
+            main-13303   [008] d..31  5407.637928: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13303   [008] d..31  5407.637929: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13303   [008] d..31  5407.637934: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13303   [008] d..31  5407.637935: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951991
+            main-13303   [008] d..31  5407.637937: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13303   [008] d..31  5407.637938: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13303   [008] d..31  5407.637943: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13303   [008] d..31  5407.637945: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951991
+            main-13303   [008] d..31  5407.637945: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13303   [008] d..31  5407.637946: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13303   [008] d..31  5407.637951: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13303   [008] d..31  5407.637953: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951991
+            main-13303   [008] d..31  5407.637954: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13303   [008] d..31  5407.637954: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13303   [008] d..31  5407.637959: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13303   [008] d..31  5407.637961: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951991
+            main-13303   [008] d..31  5407.637962: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13303   [008] d..31  5407.637963: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13303   [008] d..31  5407.637976: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13303   [008] d..31  5407.637978: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951991
+            main-13303   [008] d..31  5407.637979: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13303   [008] d..31  5407.637980: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13303   [008] d..31  5407.637985: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13303   [008] d..31  5407.637986: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951991
+            main-13303   [008] d..31  5407.637988: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13303   [008] d..31  5407.637989: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13303   [008] d..31  5407.637994: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13303   [008] d..31  5407.637996: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951991
+            main-13303   [008] d..31  5407.637996: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13303   [008] d..31  5407.637997: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13303   [008] d..31  5407.638002: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13303   [008] d..31  5407.638004: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951991
+            main-13303   [008] d..31  5407.638005: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13303   [008] d..31  5407.638005: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13303   [008] d..31  5407.638009: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13303   [008] d..31  5407.638012: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951991
+            main-13303   [008] d..31  5407.638012: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13303   [008] d..31  5407.638013: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13303   [008] d..31  5407.638018: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13303   [008] d..31  5407.638022: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951991
+            main-13303   [008] d..31  5407.638022: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13303   [008] d..31  5407.638023: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13303   [008] d..31  5407.638028: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13303   [008] d..31  5407.638029: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951991
+            main-13303   [008] d..31  5407.638030: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13303   [008] d..31  5407.638032: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13303   [008] d..31  5407.638036: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13303   [008] d..31  5407.638038: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951991
+            main-13303   [008] d..31  5407.638038: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13303   [008] d..31  5407.638040: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13303   [008] d..31  5407.638045: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13303   [008] d..31  5407.638047: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951991
+            main-13303   [008] d..31  5407.638048: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13303   [008] d..31  5407.638048: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13303   [008] d..31  5407.638054: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13303   [008] d..31  5407.638056: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951991
+            main-13303   [008] d..31  5407.638056: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13303   [008] d..31  5407.638057: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13303   [008] d..31  5407.638061: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13303   [008] d..31  5407.638064: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951991
+            main-13303   [008] d..31  5407.638064: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13303   [008] d..31  5407.638065: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13303   [008] d..31  5407.638070: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13303   [008] d..31  5407.638071: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951991
+            main-13303   [008] d..31  5407.638072: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13303   [008] d..31  5407.638074: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13303   [008] d..31  5407.638079: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13303   [008] d..31  5407.638080: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951991
+            main-13303   [008] d..31  5407.638081: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13303   [008] d..31  5407.638082: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13303   [008] d..31  5407.638087: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13303   [008] d..31  5407.638089: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951991
+            main-13303   [008] d..31  5407.638091: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13303   [008] d..31  5407.638091: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13303   [008] d..31  5407.638096: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13303   [008] d..31  5407.638098: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951991
+            main-13303   [008] d..31  5407.638098: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13303   [008] d..31  5407.638099: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-14752   [002] d..31  5407.638100: bpf_trace_printk: [sys_write_entry]:called for [PID:13303]
+
+            main-13303   [008] d..31  5407.638103: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13303   [008] d..31  5407.638104: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951991
+            main-13303   [008] d..31  5407.638105: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13303   [008] d..31  5407.638105: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-14752   [002] d..31  5407.638107: bpf_trace_printk: [sys_write_exit]:called for [PID:13303] having return code:1
+            main-13303   [008] d..31  5407.638109: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13303   [008] d..31  5407.638111: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951991
+            main-14484   [009] d..31  5407.638112: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13303   [008] d..31  5407.638113: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13303   [008] d..31  5407.638113: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-14484   [009] d..31  5407.638116: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:1
+            main-13303   [008] d..31  5407.638117: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13303   [008] d..31  5407.638119: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951991
+            main-13303   [008] d..31  5407.638119: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13303   [008] d..31  5407.638120: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13303   [008] d..31  5407.638124: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13303   [008] d..31  5407.638125: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951991
+            main-13303   [008] d..31  5407.638126: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13303   [008] d..31  5407.638126: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13303   [008] d..31  5407.638130: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13303   [008] d..31  5407.638131: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951991
+            main-13303   [008] d..31  5407.638132: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13303   [008] d..31  5407.638133: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13303   [008] d..31  5407.638136: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13303   [008] d..31  5407.638138: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951991
+            main-13303   [008] d..31  5407.638138: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13303   [008] d..31  5407.638139: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13303   [008] d..31  5407.638143: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13303   [008] d..31  5407.638144: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951991
+            main-13303   [008] d..31  5407.638145: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13303   [008] d..31  5407.638145: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13303   [008] d..31  5407.638150: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13303   [008] d..31  5407.638151: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951991
+            main-13303   [008] d..31  5407.638152: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13303   [008] d..31  5407.638152: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13303   [008] d..31  5407.638156: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13303   [008] d..31  5407.638157: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951991
+            main-13303   [008] d..31  5407.638158: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13303   [008] d..31  5407.638158: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13303   [008] d..31  5407.638162: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13303   [008] d..31  5407.638163: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951991
+            main-13303   [008] d..31  5407.638163: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13303   [008] d..31  5407.638164: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13303   [008] d..31  5407.638168: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13303   [008] d..31  5407.638169: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951991
+            main-13303   [008] d..31  5407.638169: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13303   [008] d..31  5407.638170: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13303   [008] d..31  5407.638174: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13303   [008] d..31  5407.638175: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951991
+            main-13303   [008] d..31  5407.638176: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13303   [008] d..31  5407.638177: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13303   [008] d..31  5407.638180: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13303   [008] d..31  5407.638181: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951991
+            main-13303   [008] d..31  5407.638182: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13303   [008] d..31  5407.638183: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13303   [008] d..31  5407.638186: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13303   [008] d..31  5407.638188: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951991
+            main-13303   [008] d..31  5407.638188: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13303   [008] d..31  5407.638189: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13303   [008] d..31  5407.638193: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13303   [008] d..31  5407.638194: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951991
+            main-13303   [008] d..31  5407.638195: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13303   [008] d..31  5407.638196: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13303   [008] d..31  5407.638199: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13303   [008] d..31  5407.638201: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951991
+            main-13303   [008] d..31  5407.638201: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13303   [008] d..31  5407.638202: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13303   [008] d..31  5407.638206: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13303   [008] d..31  5407.638208: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951991
+            main-13303   [008] d..31  5407.638208: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13303   [008] d..31  5407.638209: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13303   [008] d..31  5407.638212: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13303   [008] d..31  5407.638214: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951991
+            main-13303   [008] d..31  5407.638214: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:4096
+            main-13303   [008] d..31  5407.638215: bpf_trace_printk: Submitting the data event with buffer size:4096 to the userspace
+            main-13303   [008] d..31  5407.638219: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-13303   [008] d..31  5407.638220: bpf_trace_printk: [sys_read_exit]: called for pid_tgid:57135949951991
+            main-13303   [008] d..31  5407.638221: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:1078
+            main-13303   [008] d..31  5407.638221: bpf_trace_printk: Submitting the data event with buffer size:1078 to the userspace
+            main-14752   [007] d..31  5407.638295: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-14752   [007] d..31  5407.638300: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:-11
+           <...>-14489   [010] d..31  5407.639189: bpf_trace_printk: [sys_write_entry]:called for [PID:13303]
+
+           <...>-14489   [010] d..31  5407.639204: bpf_trace_printk: [sys_write_exit]:called for [PID:13303] having return code:24
+           <...>-14489   [010] d..31  5407.639209: bpf_trace_printk: [sys_write_entry]:called for [PID:13303]
+
+           <...>-14489   [010] d..31  5407.639212: bpf_trace_printk: [sys_write_exit]:called for [PID:13303] having return code:47
+           <...>-14489   [010] d..31  5407.639236: bpf_trace_printk: [sys_write_entry]:called for [PID:13303]
+
+           <...>-14489   [010] d..31  5407.639289: bpf_trace_printk: [sys_write_exit]:called for [PID:13303] having return code:144
+           <...>-14489   [010] d..31  5407.639296: bpf_trace_printk: Submitting the data event with buffer size:144 to the userspace
+            main-14489   [010] d..31  5407.639315: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-14489   [010] d..31  5407.639318: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:-11
+            main-14484   [009] d..31  5407.639387: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-14484   [009] d..31  5407.639392: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:0
+            main-14484   [009] d..31  5407.639402: bpf_trace_printk: [sys_read_entry]:called for [PID:13303]
+
+            main-14484   [009] d..31  5407.639403: bpf_trace_printk: [sys_read_exit]:called for [PID:13303] having return code:0
+            main-14484   [009] d..31  5407.639413: bpf_trace_printk: [sys_close_entry]:called for [PID:13303]
+
+            main-14484   [009] d..31  5407.639416: bpf_trace_printk: [sys_close_exit]:called for [PID:13303]
+
+            main-14484   [009] d..31  5407.639416: bpf_trace_printk: Connection closed on [fd:4]
+            main-14484   [009] d..31  5407.639417: bpf_trace_printk: Submitting the close event to the userspace with rd_bytes[767144] || wr_bytes[144]

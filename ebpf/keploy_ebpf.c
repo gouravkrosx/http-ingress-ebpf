@@ -236,6 +236,11 @@ int syscall__probe_ret_read(struct pt_regs *ctx)
     // The return code the syscall is the number of bytes read as well.
     size_t bytes_count = PT_REGS_RC(ctx); // Also stands for return code.
 
+    if ((int)bytes_count >= 16)
+    {
+        bpf_printk("[sys_read_exit]: called for pid_tgid:%llu", id);
+    }
+
     bpf_printk("[sys_read_exit]:called for [PID:%lu] having return code:%d", pid, bytes_count);
 
     struct data_args_t *read_args = bpf_map_lookup_elem(&active_read_args_map, &id);
@@ -324,6 +329,11 @@ int syscall__probe_ret_write(struct pt_regs *ctx)
 
     // The return code the syscall is the number of bytes read as well.
     size_t bytes_count = PT_REGS_RC(ctx); // Also stands for return code.
+
+    if ((int)bytes_count >= 16)
+    {
+        bpf_printk("[sys_write_exit]: called for pid_tgid:%llu", id);
+    }
 
     bpf_printk("[sys_write_exit]:called for [PID:%lu] having return code:%d", pid, bytes_count);
 

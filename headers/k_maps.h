@@ -79,7 +79,7 @@ struct
 struct
 {
     __uint(type, BPF_MAP_TYPE_RINGBUF);
-    __uint(max_entries, 1 << 24); //  16 MB
+    __uint(max_entries, 1 << 26); //  64 MB
 } socket_data_events SEC(".maps");
 
 // We can't allocate more than 512 bytes of data on the btf stack, hence we used PERCPU_ARRAY which gives 32Kb of data from the heap
