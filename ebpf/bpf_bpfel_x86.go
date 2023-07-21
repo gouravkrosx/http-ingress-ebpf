@@ -75,10 +75,14 @@ type bpfMapSpecs struct {
 	ActiveWriteArgsMap        *ebpf.MapSpec `ebpf:"active_write_args_map"`
 	AppPidMap                 *ebpf.MapSpec `ebpf:"app_pid_map"`
 	ConnInfoMap               *ebpf.MapSpec `ebpf:"conn_info_map"`
+	ReadCounter               *ebpf.MapSpec `ebpf:"read_counter"`
+	ReadDataMap               *ebpf.MapSpec `ebpf:"read_data_map"`
 	SocketCloseEvents         *ebpf.MapSpec `ebpf:"socket_close_events"`
 	SocketDataEventBufferHeap *ebpf.MapSpec `ebpf:"socket_data_event_buffer_heap"`
 	SocketDataEvents          *ebpf.MapSpec `ebpf:"socket_data_events"`
 	SocketOpenEvents          *ebpf.MapSpec `ebpf:"socket_open_events"`
+	WriteCounter              *ebpf.MapSpec `ebpf:"write_counter"`
+	WriteDataMap              *ebpf.MapSpec `ebpf:"write_data_map"`
 }
 
 // bpfObjects contains all objects after they have been loaded into the kernel.
@@ -106,10 +110,14 @@ type bpfMaps struct {
 	ActiveWriteArgsMap        *ebpf.Map `ebpf:"active_write_args_map"`
 	AppPidMap                 *ebpf.Map `ebpf:"app_pid_map"`
 	ConnInfoMap               *ebpf.Map `ebpf:"conn_info_map"`
+	ReadCounter               *ebpf.Map `ebpf:"read_counter"`
+	ReadDataMap               *ebpf.Map `ebpf:"read_data_map"`
 	SocketCloseEvents         *ebpf.Map `ebpf:"socket_close_events"`
 	SocketDataEventBufferHeap *ebpf.Map `ebpf:"socket_data_event_buffer_heap"`
 	SocketDataEvents          *ebpf.Map `ebpf:"socket_data_events"`
 	SocketOpenEvents          *ebpf.Map `ebpf:"socket_open_events"`
+	WriteCounter              *ebpf.Map `ebpf:"write_counter"`
+	WriteDataMap              *ebpf.Map `ebpf:"write_data_map"`
 }
 
 func (m *bpfMaps) Close() error {
@@ -120,10 +128,14 @@ func (m *bpfMaps) Close() error {
 		m.ActiveWriteArgsMap,
 		m.AppPidMap,
 		m.ConnInfoMap,
+		m.ReadCounter,
+		m.ReadDataMap,
 		m.SocketCloseEvents,
 		m.SocketDataEventBufferHeap,
 		m.SocketDataEvents,
 		m.SocketOpenEvents,
+		m.WriteCounter,
+		m.WriteDataMap,
 	)
 }
 

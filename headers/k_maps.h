@@ -11,7 +11,6 @@ struct
     __uint(max_entries, 1);
 } app_pid_map SEC(".maps");
 
-
 //--- Ingress maps ---
 
 // A map of the active connections. The name of the map is conn_info_map
@@ -91,3 +90,42 @@ struct
     __type(value, struct socket_data_event_t);
     __uint(max_entries, 1);
 } socket_data_event_buffer_heap SEC(".maps");
+
+// POC for file upload
+
+// key is (pid_fd_idx) max entries = 25600 to store 100MB of data in chunks each having size 4KB.
+
+struct
+{
+    __uint(type, BPF_MAP_TYPE_HASH);
+    __type(key, char[64]);
+    __type(value, struct socket_data_event_t);
+    __uint(max_entries, 25600);
+} read_data_map SEC(".maps");
+
+struct
+{
+    __uint(type, BPF_MAP_TYPE_HASH);
+    __type(key, char[64]);
+    __type(value, struct socket_data_event_t);
+    __uint(max_entries, 25600);
+} write_data_map SEC(".maps");
+
+
+// key is pid_fd, value = index of read_data_map
+struct
+{
+    __uint(type, BPF_MAP_TYPE_HASH);
+    __type(key, u64);
+    __type(value, u32);
+    __uint(max_entries, 25600);
+} read_counter SEC(".maps");
+
+// key is pid_fd, value = index of write_data_map
+struct
+{
+    __uint(type, BPF_MAP_TYPE_HASH);
+    __type(key, u64);
+    __type(value, u32);
+    __uint(max_entries, 25600);
+} write_counter SEC(".maps");

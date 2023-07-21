@@ -19,4 +19,4 @@ else
 fi
 
 # Compile and run the ebpf program...
-go generate ./... && go run -exec "sudo -E" ./ebpf --pid 13303
+go generate ./... && go run -exec "sudo -E" ./ebpf --pid 8428

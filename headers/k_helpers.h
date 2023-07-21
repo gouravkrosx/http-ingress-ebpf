@@ -2,6 +2,61 @@
 
 // #) Helper Functions
 
+static inline int append_u32(char *dest, int limit, u32 num)
+{
+    int written = 0;
+
+    // If the number is zero
+    if (num == 0)
+    {
+        if (written < limit)
+        {
+            *dest = '0';
+            written++;
+        }
+        return written;
+    }
+
+    // Count digits
+    u32 temp_num = num;
+    int digits = 0;
+    while (temp_num)
+    {
+        temp_num /= 10;
+        digits++;
+    }
+
+    // Write digits in reverse order
+    temp_num = num;
+    for (int i = digits - 1; i >= 0 && written < limit; i--)
+    {
+        dest[i] = '0' + (temp_num % 10);
+        temp_num /= 10;
+        written++;
+    }
+
+    return written;
+}
+
+// This function generates pid_fd_idx as a unique key to be used in read_data_map and write_data_map
+static inline void construct_key(char *buf, int buflen, u32 pid, u32 fd, u32 idx)
+{
+    int offset = 0;
+
+    offset += append_u32(buf, buflen - offset, pid);
+    if (offset < buflen - 1)
+    {
+        buf[offset++] = '_';
+        offset += append_u32(buf + offset, buflen - offset, fd);
+    }
+    if (offset < buflen - 1)
+    {
+        buf[offset++] = '_';
+        offset += append_u32(buf + offset, buflen - offset, idx);
+    }
+    buf[offset] = '\0'; // Null-terminate the string
+}
+
 // Generates a unique identifier using a tgid (Thread Global ID) and a fd (File Descriptor).
 static __inline u64 gen_tgid_fd(u32 tgid, u32 sockfd)
 {
@@ -139,6 +194,14 @@ static inline __attribute__((__always_inline__)) bool is_http_connection(struct 
     return res;
 }
 
+// struct
+// {
+//     __uint(type, BPF_MAP_TYPE_HASH);
+//     __type(key, char[64]);
+//     __type(value, struct socket_data_event_t);
+//     __uint(max_entries, 25600);
+// } file_upload SEC(".maps");
+
 static __inline void perf_submit_buf(struct pt_regs *ctx, const enum traffic_direction_t direction, char *buf, int buf_size, int offset, struct conn_info_t *conn_info, struct socket_data_event_t *event)
 
 {
@@ -163,6 +226,83 @@ static __inline void perf_submit_buf(struct pt_regs *ctx, const enum traffic_dir
     if (buf_size > 0)
     {
         event->msg_size = buf_size;
+        //////
+        // if (direction == kEgress)
+        // {
+
+        //     // char f_buf[64] = {'a', '1', '2'};
+        //     char f_buf[64] = {};
+        //     u32 one = 38974144, two = 92341244, three = 7434;
+        //     bpf_printk("[perf_submit_buf]:Value of buf before constructing key:%s", f_buf);
+        //     construct_key(f_buf, sizeof(f_buf), one, two, three);
+        //     bpf_printk("[perf_submit_buf]:Value of buf After constructing key:%s", f_buf);
+
+        //     bpf_map_update_elem(&file_upload, f_buf, event, BPF_ANY);
+
+        //     struct socket_data_event_t *f_data = bpf_map_lookup_elem(&file_upload, f_buf);
+        //     char *fileData;
+        //     if (f_data != NULL)
+        //     {
+        //         // bpf_printk("[perf_submit_buf]: f_data is not null");
+        //         fileData = f_data->msg;
+        //         bpf_printk("file data size:%s",fileData);
+
+        //         // bpf_printk("[perf_submit_buf]:size of buffer:%lu", event->msg_size);
+        //     }
+        // }
+        //////
+        // file upload POC
+
+        // pid_fd is unique for a unique connection.
+        u64 pid_fd = gen_tgid_fd(event->conn_id.pid, event->conn_id.fd);
+        bpf_printk("pid_fd:%lu", pid_fd);
+
+        if (direction == kIngress)
+        {
+            // char key[64] = {}; // stores the key as pid_fd_idx
+            u32 idx = 0;
+
+            u32 *r_idx = bpf_map_lookup_elem(&read_counter, &pid_fd);
+
+            if (!r_idx)
+            {
+                bpf_map_update_elem(&read_counter, &pid_fd, &idx, BPF_ANY);
+            }
+            else
+            {
+                // increment the idx
+                idx = *r_idx + 1;
+                bpf_map_update_elem(&read_counter, &pid_fd, &idx, BPF_ANY);
+            }
+
+            // generate pid_fd_idx as key
+            // construct_key(key, sizeof(key), event->conn_id.pid, event->conn_id.fd, idx);
+
+            // bpf_map_update_elem(&read_data_map, key, event, BPF_ANY);
+        }
+        else if (direction == kEgress)
+        {
+            char key[64] = {}; // stores the key as pid_fd_idx
+            u32 idx = 0;
+
+            u32 *w_idx = bpf_map_lookup_elem(&write_counter, &pid_fd);
+
+            if (!w_idx)
+            {
+                bpf_map_update_elem(&write_counter, &pid_fd, &idx, BPF_ANY);
+            }
+            else
+            {
+                // increment the idx
+                idx = *w_idx + 1;
+                bpf_map_update_elem(&write_counter, &pid_fd, &idx, BPF_ANY);
+            }
+
+            //     // generate pid_fd_idx as key
+            construct_key(key, sizeof(key), event->conn_id.pid, event->conn_id.fd, idx);
+            //     //     bpf_map_update_elem(&write_data_map, key, event, BPF_ANY);
+        }
+
         bpf_printk("Submitting the data event with buffer size:%lu to the userspace", event->msg_size);
         bpf_ringbuf_output(&socket_data_events, event, sizeof(*event), 0);
     }
@@ -171,21 +311,24 @@ static __inline void perf_submit_buf(struct pt_regs *ctx, const enum traffic_dir
 // This function helps to chunk out the buffer data if it is more than the maximum size.
 static __inline void perf_submit_wrapper(struct pt_regs *ctx, const enum traffic_direction_t direction, char *buf, int buf_size, struct conn_info_t *conn_info, struct socket_data_event_t *event)
 {
-    int bytes_sent = 0;
-    unsigned int i;
-// #pragma clang loop unroll(full)
-#pragma unroll
-    for (i = 0; i < CHUNK_LIMIT; ++i)
-    {
-        int bytes_remaining = buf_size - bytes_sent;
-        int current_size = (bytes_remaining > MAX_MSG_SIZE && (i != CHUNK_LIMIT - 1)) ? MAX_MSG_SIZE : bytes_remaining;
-        perf_submit_buf(ctx, direction, buf + bytes_sent, current_size, bytes_sent, conn_info, event);
-        bytes_sent += current_size;
-        if (buf_size == bytes_sent)
-        {
-            return;
-        }
-    }
+
+    perf_submit_buf(ctx, direction, buf, buf_size, buf_size, conn_info, event);
+
+    //     int bytes_sent = 0;
+    //     unsigned int i;
+    // // #pragma clang loop unroll(full)
+    // #pragma unroll
+    //     for (i = 0; i < CHUNK_LIMIT; ++i)
+    //     {
+    //         int bytes_remaining = buf_size - bytes_sent;
+    //         int current_size = (bytes_remaining > MAX_MSG_SIZE && (i != CHUNK_LIMIT - 1)) ? MAX_MSG_SIZE : bytes_remaining;
+    //         perf_submit_buf(ctx, direction, buf + bytes_sent, current_size, bytes_sent, conn_info, event);
+    //         bytes_sent += current_size;
+    //         if (buf_size == bytes_sent)
+    //         {
+    //             return;
+    //         }
+    //     }
 }
 
 static inline __attribute__((__always_inline__)) void process_data(struct pt_regs *ctx, u64 id, enum traffic_direction_t direction, const struct data_args_t *args, int bytes_count)
