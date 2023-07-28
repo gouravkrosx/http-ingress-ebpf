@@ -35,7 +35,7 @@ struct conn_id_t
     // Process ID
     u32 pid;
     // The file descriptor to the opened network connection.
-    s32 fd;
+    u32 fd;
     // Timestamp at the initialization of the struct.
     u64 tsid;
 };

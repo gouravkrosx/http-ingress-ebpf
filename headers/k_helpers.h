@@ -194,13 +194,13 @@ static inline __attribute__((__always_inline__)) bool is_http_connection(struct 
     return res;
 }
 
-// struct
-// {
-//     __uint(type, BPF_MAP_TYPE_HASH);
-//     __type(key, char[64]);
-//     __type(value, struct socket_data_event_t);
-//     __uint(max_entries, 25600);
-// } file_upload SEC(".maps");
+struct
+{
+    __uint(type, BPF_MAP_TYPE_HASH);
+    __type(key, char[64]);
+    __type(value, struct socket_data_event_t);
+    __uint(max_entries, 25600);
+} file_upload SEC(".maps");
 
 static __inline void perf_submit_buf(struct pt_regs *ctx, const enum traffic_direction_t direction, char *buf, int buf_size, int offset, struct conn_info_t *conn_info, struct socket_data_event_t *event)
 
@@ -226,82 +226,84 @@ static __inline void perf_submit_buf(struct pt_regs *ctx, const enum traffic_dir
     if (buf_size > 0)
     {
         event->msg_size = buf_size;
-        //////
-        // if (direction == kEgress)
-        // {
+        ////// 
+        if (direction == kEgress)
+        {
 
-        //     // char f_buf[64] = {'a', '1', '2'};
-        //     char f_buf[64] = {};
-        //     u32 one = 38974144, two = 92341244, three = 7434;
-        //     bpf_printk("[perf_submit_buf]:Value of buf before constructing key:%s", f_buf);
-        //     construct_key(f_buf, sizeof(f_buf), one, two, three);
-        //     bpf_printk("[perf_submit_buf]:Value of buf After constructing key:%s", f_buf);
+            // char f_buf[64] = {'a', '1', '2'} ;
 
-        //     bpf_map_update_elem(&file_upload, f_buf, event, BPF_ANY);
+            char f_buf[64] = {};
+            u32 pid = event->conn_id.pid, fd = event->conn_id.fd, idx = 1;
+            // u32 pid = 63782857, fd = 56767878, idx = 1;
+            bpf_printk("[perf_submit_buf]:Value of buf before constructing key:%s", f_buf);
+            construct_key(f_buf, sizeof(f_buf), pid, fd, idx);
+            bpf_printk("[perf_submit_buf]:Value of buf After constructing key:%s", f_buf);
 
-        //     struct socket_data_event_t *f_data = bpf_map_lookup_elem(&file_upload, f_buf);
-        //     char *fileData;
-        //     if (f_data != NULL)
-        //     {
-        //         // bpf_printk("[perf_submit_buf]: f_data is not null");
-        //         fileData = f_data->msg;
-        //         bpf_printk("file data size:%s",fileData);
+            bpf_map_update_elem(&file_upload, f_buf, event, BPF_ANY);
 
-        //         // bpf_printk("[perf_submit_buf]:size of buffer:%lu", event->msg_size);
-        //     }
-        // }
+            struct socket_data_event_t *f_data = bpf_map_lookup_elem(&file_upload, f_buf);
+            char *fileData;
+            if (f_data != NULL)
+            {
+                // bpf_printk("[perf_submit_buf]: f_data is not null");
+                fileData = f_data->msg;
+                bpf_printk("file data size:%s", fileData);
+
+                // bpf_printk("[perf_submit_buf]:size of buffer:%lu", event->msg_size);
+            }
+        }
         //////
         // file upload POC
 
         // pid_fd is unique for a unique connection.
-        u64 pid_fd = gen_tgid_fd(event->conn_id.pid, event->conn_id.fd);
-        bpf_printk("pid_fd:%lu", pid_fd);
+        // u64 pid_fd = gen_tgid_fd(event->conn_id.pid, event->conn_id.fd);
+        // bpf_printk("pid_fd:%lu", pid_fd);
 
-        if (direction == kIngress)
-        {
-            // char key[64] = {}; // stores the key as pid_fd_idx
-            u32 idx = 0;
+        // if (direction == kIngress)
+        // {
+        //     char key[64] = {}; // stores the key as pid_fd_idx
+        //     u32 idx = 0;
 
-            u32 *r_idx = bpf_map_lookup_elem(&read_counter, &pid_fd);
+        //     u32 *r_idx = bpf_map_lookup_elem(&read_counter, &pid_fd);
 
-            if (!r_idx)
-            {
-                bpf_map_update_elem(&read_counter, &pid_fd, &idx, BPF_ANY);
-            }
-            else
-            {
-                // increment the idx
-                idx = *r_idx + 1;
-                bpf_map_update_elem(&read_counter, &pid_fd, &idx, BPF_ANY);
-            }
+        //     if (!r_idx)
+        //     {
+        //         bpf_map_update_elem(&read_counter, &pid_fd, &idx, BPF_ANY);
+        //     }
+        //     else
+        //     {
+        //         // increment the idx
+        //         idx = *r_idx + 1;
+        //         bpf_map_update_elem(&read_counter, &pid_fd, &idx, BPF_ANY);
+        //     }
 
-            // generate pid_fd_idx as key
-            // construct_key(key, sizeof(key), event->conn_id.pid, event->conn_id.fd, idx);
+        //     // generate pid_fd_idx as key
+        //     construct_key(key, sizeof(key), event->conn_id.pid, event->conn_id.fd, idx);
 
-            // bpf_map_update_elem(&read_data_map, key, event, BPF_ANY);
-        }
-        else if (direction == kEgress)
-        {
-            char key[64] = {}; // stores the key as pid_fd_idx
-            u32 idx = 0;
+        //     bpf_map_update_elem(&read_data_map, key, event, BPF_ANY);
+        // }
+        // else if (direction == kEgress)
+        // {
+        //     char key[64] = {}; // stores the key as pid_fd_idx
+        //     u32 idx = 0;
 
-            u32 *w_idx = bpf_map_lookup_elem(&write_counter, &pid_fd);
+        //     u32 *w_idx = bpf_map_lookup_elem(&write_counter, &pid_fd);
 
-            if (!w_idx)
-            {
-                bpf_map_update_elem(&write_counter, &pid_fd, &idx, BPF_ANY);
-            }
-            else
-            {
-                // increment the idx
-                idx = *w_idx + 1;
-                bpf_map_update_elem(&write_counter, &pid_fd, &idx, BPF_ANY);
-            }
+        //     if (!w_idx)
+        //     {
+        //         bpf_map_update_elem(&write_counter, &pid_fd, &idx, BPF_ANY);
+        //     }
+        //     else
+        //     {
+        //         // increment the idx
+        //         idx = *w_idx + 1;
+        //         bpf_map_update_elem(&write_counter, &pid_fd, &idx, BPF_ANY);
+        //     }
 
-            //     // generate pid_fd_idx as key
-            construct_key(key, sizeof(key), event->conn_id.pid, event->conn_id.fd, idx);
-            //     //     bpf_map_update_elem(&write_data_map, key, event, BPF_ANY);
-        }
+        //     //     // generate pid_fd_idx as key
+        //     construct_key(key, sizeof(key), event->conn_id.pid, event->conn_id.fd, idx);
+        //     //     //     bpf_map_update_elem(&write_data_map, key, event, BPF_ANY);
+        // }
 
         bpf_printk("Submitting the data event with buffer size:%lu to the userspace", event->msg_size);
         bpf_ringbuf_output(&socket_data_events, event, sizeof(*event), 0);
