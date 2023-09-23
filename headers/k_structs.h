@@ -5,15 +5,14 @@
 
 // Data buffer message size. BPF can submit at most this amount of data to a perf buffer.
 // Kernel size limit is 32KiB. See https://github.com/iovisor/bcc/issues/2519 for more details.
-// But here we took 16Kib & not 32Kib because the overall size of the `struct socket_data_event_t` becomes more than 32Kib.
+// But here we took ~16Kib & not 32Kib because the overall size of the `struct socket_data_event_t` becomes more than 32Kib.
 // And this size should be in the power of 2 only.
-#define MAX_MSG_SIZE 16384 // 16KiB
+#define MAX_MSG_SIZE 16383 // (16KB-1) or (2^14-1 bytes)
+
 
 // This defines how many chunks a ringbuf can support. This applies to messages that are over MAX_MSG_SIZE,
 // and effectively makes the maximum message size to be CHUNK_LIMIT*MAX_MSG_SIZE.
-// Maximum chunk_limit recored is 81 beyond that it says ->
-// load program: argument list too long: 764: (1d) if r1 == r2 goto pc-503     ; frame1: R1_w=258048 R2_w=scalar(umax=4294967295,var_off=(0x0; 0xffffffff)): ; int by (truncated, 854 line(s) omitted)
-#define CHUNK_LIMIT 80
+#define CHUNK_LIMIT 50
 
 
 
@@ -67,6 +66,7 @@ struct data_args_t
 {
     s32 fd;
     char *buf;
+    struct iovec *iovec;
 };
 
 // An helper struct that hold the input arguments of the close syscall.
@@ -123,4 +123,10 @@ struct socket_data_event_t
 
     // Actual buffer
     char msg[MAX_MSG_SIZE];
+
+    //To verify the request data
+    s64 validate_rd_bytes;
+
+    //To verify the response data
+    s64 validate_wr_bytes;
 };

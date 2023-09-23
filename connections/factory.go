@@ -19,18 +19,12 @@ package connections
 
 import (
 	"fmt"
-	"io"
-	"mime"
-	"mime/multipart"
-	"net/http"
-	"os"
-	"strings"
+
 	"sync"
+	
 	"time"
 
 	"http_ingress/structs"
-	"http_ingress/util"
-
 	"go.uber.org/zap"
 )
 
@@ -58,100 +52,17 @@ func (factory *Factory) HandleReadyConnections() {
 	defer factory.mutex.Unlock()
 	var trackersToDelete []structs.ConnID
 	for connID, tracker := range factory.connections {
-		if tracker.IsComplete() {
-			trackersToDelete = append(trackersToDelete, connID)
-			if len(tracker.sentBuf) == 0 && len(tracker.recvBuf) == 0 {
+		ok, requestBuf, responseBuf := tracker.IsComplete()
+		if ok {
+
+			if len(requestBuf) == 0 && len(responseBuf) == 0 {
+				factory.logger.Debug("Empty request or response", zap.Any("RecvBufLength", len(requestBuf)), zap.Any("SentBufLength", len(responseBuf)))
 				continue
 			}
 
-			// fmt.Printf(""========================>\nFound HTTP payload\nRequest->\n%s\n\nResponse->\n%s\n\n<========================\n", tracker.recvBuf, tracker.sentBuf)
-			fmt.Printf("========================>\nFound HTTP payload\nResponse->\n%s\n\n<========================\n", tracker.sentBuf)
-
-			parsedHttpReq, err := util.ParseHTTPRequest(tracker.recvBuf)
-			if err != nil {
-				factory.logger.Error("failed to parse the http request from byte array", zap.Error(err))
-				continue
-			}
-
-			fmt.Printf("Request:%v\n", parsedHttpReq)
-
-			// _, err = io.ReadAll(parsedHttpReq.Body)
-			// if err != nil {
-			// 	factory.logger.Error("failed to read the http request body", zap.Error(err))
-			// 	return
-			// }
-
-			// Check if the request contains a file upload
-			contentType := parsedHttpReq.Header.Get("Content-Type")
-			mediatype, params, err := mime.ParseMediaType(contentType)
-			if err != nil {
-				factory.logger.Error("failed to parse the content type", zap.Error(err))
-				return
-			}
-
-			if strings.HasPrefix(mediatype, "multipart/") {
-				// Expect a file upload, so process it
-				mr := multipart.NewReader(parsedHttpReq.Body, params["boundary"])
-
-				// Assuming there's only one file
-				part, err := mr.NextPart()
-				if err != nil {
-					factory.logger.Error("failed to get the next part from multipart reader", zap.Error(err))
-					return
-				}
-
-				// Extract the filename from the part's header (Assuming it's there)
-				filename := part.FileName()
-				if filename == "" {
-					factory.logger.Error("failed to extract filename", zap.String("err", "filename not found in part header"))
-					return
-				}
-
-				// Create a new file with the extracted filename
-				file, err := os.Create(filename)
-				if err != nil {
-					factory.logger.Error("failed to create file", zap.Error(err), zap.String("filename", filename))
-					return
-				}
-				defer file.Close()
-
-				// Copy the part's body to the new file
-				_, err = io.Copy(file, part)
-				if err != nil {
-					factory.logger.Error("failed to write to file", zap.Error(err), zap.String("filename", filename))
-					return
-				}
-
-				fmt.Printf("File %s has been created\n", filename)
-			}
-
-			// factory.logger.Debug(string(reqBody))
-			finalResponseData := util.ExtractLastResponse(tracker.sentBuf)
-			var parsedHttpRes *http.Response
-			if finalResponseData != nil || len(finalResponseData) != 0 {
-
-				parsedHttpRes, err = util.ParseHTTPResponse(finalResponseData, parsedHttpReq)
-				if err != nil {
-					factory.logger.Error("failed to parse the http response from byte array", zap.Error(err))
-					continue
-				}
-			} else {
-				factory.logger.Error("failed to locate the last HTTP response")
-			}
-
-			fmt.Printf("Response:%v\n", parsedHttpRes)
-
-			respBody, err := io.ReadAll(parsedHttpRes.Body)
-			parsedHttpRes.Body.Close()
-
-			if err != nil {
-				factory.logger.Error("failed to read the http response body", zap.Error(err))
-				return
-			}
-
-			factory.logger.Debug("ResponseBody:" + string(respBody))
-
-		} else if tracker.Malformed() || tracker.IsInactive(factory.inactivityThreshold) {
+			fmt.Printf("========================>\nFound HTTP payload\nRequest->\n%s\n\nResponse->\n%s\n\n<========================\n", requestBuf, responseBuf)
+	
+		} else if tracker.IsInactive(factory.inactivityThreshold) {
 			trackersToDelete = append(trackersToDelete, connID)
 		}
 	}

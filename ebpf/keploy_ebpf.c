@@ -354,6 +354,254 @@ int syscall__probe_ret_write(struct pt_regs *ctx)
     return 0;
 }
 
+// writev sys call, used for nodejs http response
+SEC("kprobe/sys_writev")
+int syscall__probe_entry_writev(struct pt_regs *ctx)
+{
+    u64 id = bpf_get_current_pid_tgid();
+    u32 pid = id >> 32;
+
+    u32 kZero = 0;
+    u32 *appPid = bpf_map_lookup_elem(&app_pid_map, &kZero);
+    if (appPid)
+    {
+        if (pid != *appPid)
+        {
+            return 0;
+        }
+    }
+    else
+    {
+        return 0;
+    }
+
+    struct pt_regs *__ctx = (struct pt_regs *)PT_REGS_PARM1_CORE(ctx);
+    if (!__ctx)
+    {
+        bpf_printk("[sys_writev_entry]:failed to load original ctx");
+        return 0;
+    }
+
+    struct data_args_t write_args = {};
+
+    write_args.fd = (int)PT_REGS_PARM1_CORE(__ctx);
+    struct iovec *iovecs = (struct iovec *)PT_REGS_PARM2_CORE(__ctx);
+
+    if (!iovecs)
+    {
+        bpf_printk("[sys_writev_entry]: iovecs is null\n");
+        return 0;
+    }
+    write_args.iovec = iovecs;
+    bpf_map_update_elem(&active_write_args_map, &id, &write_args, BPF_ANY);
+
+    return 0;
+}
+
+SEC("kretprobe/sys_writev")
+int syscall__probe_ret_writev(struct pt_regs *ctx)
+{
+
+    u64 id = bpf_get_current_pid_tgid();
+    u32 pid = id >> 32;
+
+    u32 kZero = 0;
+    u32 *appPid = bpf_map_lookup_elem(&app_pid_map, &kZero);
+    if (appPid)
+    {
+        if (pid != *appPid)
+        {
+            return 0;
+        }
+    }
+    else
+    {
+        return 0;
+    }
+
+    size_t bytes_count = PT_REGS_RC(ctx);
+
+    struct data_args_t *write_args = bpf_map_lookup_elem(&active_write_args_map, &id);
+    if (write_args)
+    {
+        bpf_printk("[sys_writev_exit]: byteCount: %d\n", bytes_count);
+        process_data_chunk(ctx, id, kEgress, write_args, bytes_count);
+        int del = bpf_map_delete_elem(&active_write_args_map, &id);
+        if (del)
+        {
+            bpf_printk("[sys_writev_exit]:error deleting the entry from the active_writev_args_map:%d\n", del);
+        }
+    }
+    return 0;
+}
+
+
+// sendto sys call
+// This syscall is used to get the response from a python application.
+SEC("kprobe/sys_sendto")
+int syscall__probe_entry_sendto(struct pt_regs *ctx)
+{
+    u64 id = bpf_get_current_pid_tgid();
+    u32 pid = id >> 32;
+
+    u32 kZero = 0;
+    u32 *appPid = bpf_map_lookup_elem(&app_pid_map, &kZero);
+    if (appPid)
+    {
+        if (pid != *appPid)
+        {
+            return 0;
+        }
+    }
+    else
+    {
+        return 0;
+    }
+
+    struct pt_regs *__ctx = (struct pt_regs *)PT_REGS_PARM1_CORE(ctx);
+    if (!__ctx)
+    {
+        bpf_printk("[sys_sendto_entry]:failed to load original ctx");
+        return 0;
+    }
+
+    struct data_args_t write_args = {};
+
+    write_args.fd = (int)PT_REGS_PARM1_CORE(__ctx);
+    char *buffer = (char *)PT_REGS_PARM2_CORE(__ctx);
+    if (!buffer)
+    {
+        bpf_printk("[sys_sendto_entry]: buffer is null\n");
+        return 0;
+    }
+    write_args.buf = buffer;
+    bpf_map_update_elem(&active_write_args_map, &id, &write_args, BPF_ANY);
+    return 0;
+}
+
+SEC("kretprobe/sys_sendto")
+int syscall__probe_ret_sendto(struct pt_regs *ctx)
+{
+    u64 id = bpf_get_current_pid_tgid();
+    u32 pid = id >> 32;
+    
+    u32 kZero = 0;
+    u32 *appPid = bpf_map_lookup_elem(&app_pid_map, &kZero);
+    if (appPid)
+    {
+        if (pid != *appPid)
+        {
+            return 0;
+        }
+    }
+    else
+    {
+        return 0;
+    }
+
+    size_t bytes_count = PT_REGS_RC(ctx);
+
+    struct data_args_t *write_args = bpf_map_lookup_elem(&active_write_args_map, &id);
+    if (write_args)
+    {
+        process_data(ctx, id, kEgress, write_args, bytes_count);
+        int del = bpf_map_delete_elem(&active_write_args_map, &id);
+        if (del)
+        {
+            bpf_printk("[sys_sendto_exit]:error deleting the entry from the active_writev_args_map:%d\n", del);
+        }
+    }
+    return 0;
+}
+
+// recvfrom sys call
+// This call is used to get the request that is made to the python application.
+SEC("kprobe/sys_recvfrom")
+int syscall__probe_entry_recvfrom(struct pt_regs *ctx)
+{
+    u64 id = bpf_get_current_pid_tgid();
+    u32 pid = id >> 32;
+   
+   u32 kZero = 0;
+    u32 *appPid = bpf_map_lookup_elem(&app_pid_map, &kZero);
+    if (appPid)
+    {
+        if (pid != *appPid)
+        {
+            return 0;
+        }
+    }
+    else
+    {
+        return 0;
+    }
+
+    struct pt_regs *__ctx = (struct pt_regs *)PT_REGS_PARM1_CORE(ctx);
+    if (!__ctx)
+    {
+        bpf_printk("[sys_recvfrom_entry]:failed to load original ctx");
+        return 0;
+    }
+
+    // Stash arguments
+    struct data_args_t read_args = {};
+
+    read_args.fd = (int)PT_REGS_PARM1_CORE(__ctx);
+    char *read_buf = (char *)PT_REGS_PARM2_CORE(__ctx);
+
+    if (!read_buf)
+    {
+        bpf_printk("[sys_recvfrom_entry]:read buf is null");
+        return 0;
+    }
+
+    read_args.buf = read_buf;
+    bpf_map_update_elem(&active_read_args_map, &id, &read_args, BPF_ANY);
+    return 0;
+}
+
+SEC("kretprobe/sys_recvfrom")
+int syscall__probe_ret_recvfrom(struct pt_regs *ctx)
+{
+    u64 id = bpf_get_current_pid_tgid();
+    u32 pid = id >> 32;
+    
+    u32 kZero = 0;
+    u32 *appPid = bpf_map_lookup_elem(&app_pid_map, &kZero);
+    if (appPid)
+    {
+        if (pid != *appPid)
+        {
+            return 0;
+        }
+    }
+    else
+    {
+        return 0;
+    }
+    
+    size_t bytes_count = PT_REGS_RC(ctx); // Also stands for return code.
+
+    bpf_printk("[sys_recvfrom_exit]:called for [PID:%lu] having return code:%d", pid, bytes_count);
+
+    struct data_args_t *read_args = bpf_map_lookup_elem(&active_read_args_map, &id);
+    if (read_args)
+    {
+        // // kIngress is an enum value that let's the process_data function
+        // // to know whether the input buffer is incoming or outgoing.
+
+        process_data(ctx, id, kIngress, read_args, bytes_count);
+
+        int del = bpf_map_delete_elem(&active_read_args_map, &id);
+        if (del)
+        {
+            bpf_printk("[sys_recvfrom_exit]:error deleting the entry from the active_read_args_map:%d\n", del);
+        }
+    }
+    return 0;
+}
+
+
 // close sys call
 //  // original signature: int close(int fd)
 SEC("kprobe/sys_close")

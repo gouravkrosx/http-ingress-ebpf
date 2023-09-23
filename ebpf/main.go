@@ -27,7 +27,7 @@ var objs = bpfObjects{}
 func getlogger() *zap.Logger {
 	// logger init
 	logCfg := zap.NewDevelopmentConfig()
-	logCfg.Level = zap.NewAtomicLevelAt(zap.DebugLevel)
+	logCfg.Level = zap.NewAtomicLevelAt(zap.InfoLevel)
 	logger, err := logCfg.Build()
 	if err != nil {
 		log.Panic("failed to start the logger for the CLI")
@@ -138,6 +138,53 @@ func main() {
 		log.Fatalf("opening write kretprobe: %s", err)
 	}
 	defer wt_.Close()
+
+	// Open a Kprobe at the entry point of the kernel function and attach the
+	// pre-compiled program for writev. (javascript/typescript specific)
+	wtv, err := link.Kprobe("sys_writev", objs.SyscallProbeEntryWritev, nil)
+	if err != nil {
+		log.Fatalf("opening writev kprobe: %s", err)
+	}
+	defer wtv.Close()
+
+	// Open a Kprobe at the exit point of the kernel function and attach the
+	// pre-compiled program for writev.
+	wtv_, err := link.Kretprobe("sys_writev", objs.SyscallProbeRetWritev, &link.KprobeOptions{RetprobeMaxActive: 2048})
+	if err != nil {
+		log.Fatalf("opening writev kretprobe: %s", err)
+	}
+	defer wtv_.Close()
+
+	//python specific sys calls (sys_sendto, sys_recvfrom)
+
+	//Open a kprobe at the entry of sendto syscall
+	snd, err := link.Kprobe("sys_sendto", objs.SyscallProbeEntrySendto, nil)
+	if err != nil {
+		log.Fatalf("opening sendto kprobe: %s", err)
+	}
+	defer snd.Close()
+
+	//Opening a kretprobe at the exit of sendto syscall
+	sndr, err := link.Kretprobe("sys_sendto", objs.SyscallProbeRetSendto, &link.KprobeOptions{RetprobeMaxActive: 2048})
+	if err != nil {
+		log.Fatalf("opening sendto kretprobe: %s", err)
+	}
+	defer sndr.Close()
+
+//Attaching a kprobe at the entry of recvfrom syscall
+	rcv, err := link.Kprobe("sys_recvfrom", objs.SyscallProbeEntryRecvfrom, nil)
+	if err != nil {
+		log.Fatalf("opening recvfrom kprobe: %s", err)
+	}
+	defer rcv.Close()
+
+	//Attaching a kretprobe at the exit of recvfrom syscall
+	rcvr, err := link.Kretprobe("sys_recvfrom", objs.SyscallProbeRetRecvfrom, &link.KprobeOptions{RetprobeMaxActive: 2048})
+	if err != nil {
+		log.Fatalf("opening recvfrom kretprobe: %s", err)
+	}
+	defer rcvr.Close()
+
 
 	// Open a Kprobe at the entry point of the kernel function and attach the
 	// pre-compiled program.

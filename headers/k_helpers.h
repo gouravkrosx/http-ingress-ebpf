@@ -143,13 +143,23 @@ static __inline void perf_submit_buf(struct pt_regs *ctx, const enum traffic_dir
 
 {
 
+    bpf_printk("Direction of traffic of connection:%d is:%d", conn_info->conn_id.fd, direction);
+
     switch (direction)
     {
     case kEgress:
         event->pos = conn_info->wr_bytes + offset;
+        // to validate request data when response comes.
+        bpf_printk("Read Bytes:%d (current request)on connection:%d", conn_info->rd_bytes, conn_info->conn_id.fd);
+        bpf_probe_read(&event->validate_rd_bytes, sizeof(event->validate_rd_bytes), &conn_info->rd_bytes);
+        conn_info->rd_bytes = 0;
         break;
     case kIngress:
         event->pos = conn_info->rd_bytes + offset;
+        // wr_bytes = 0, for the first request, but non-zero for the previous response.
+        bpf_printk("Written Bytes:%d (previous response)on connection:%d", conn_info->wr_bytes, conn_info->conn_id.fd);
+        bpf_probe_read(&event->validate_wr_bytes, sizeof(event->validate_wr_bytes), &conn_info->wr_bytes);
+        conn_info->wr_bytes = 0;
         break;
     }
 
@@ -162,7 +172,7 @@ static __inline void perf_submit_buf(struct pt_regs *ctx, const enum traffic_dir
 
     if (buf_size > 0)
     {
-        event->msg_size = buf_size;
+        bpf_probe_read(&event->msg_size, sizeof(event->msg_size), &buf_size);
         bpf_printk("Submitting the data event with buffer size:%lu to the userspace", event->msg_size);
         bpf_ringbuf_output(&socket_data_events, event, sizeof(*event), 0);
     }
@@ -178,7 +188,12 @@ static __inline void perf_submit_wrapper(struct pt_regs *ctx, const enum traffic
     for (i = 0; i < CHUNK_LIMIT; ++i)
     {
         int bytes_remaining = buf_size - bytes_sent;
-        int current_size = (bytes_remaining > MAX_MSG_SIZE && (i != CHUNK_LIMIT - 1)) ? MAX_MSG_SIZE : bytes_remaining;
+        u16 current_size = (bytes_remaining > MAX_MSG_SIZE && (i != CHUNK_LIMIT - 1)) ? MAX_MSG_SIZE : bytes_remaining;
+        if (current_size <= 0)
+        {
+            bpf_printk("Current size is zero or negative, breaking loop.");
+            break;
+        }
         perf_submit_buf(ctx, direction, buf + bytes_sent, current_size, bytes_sent, conn_info, event);
         bytes_sent += current_size;
         if (buf_size == bytes_sent)
@@ -236,6 +251,74 @@ static inline __attribute__((__always_inline__)) void process_data(struct pt_reg
         perf_submit_wrapper(ctx, direction, args->buf, bytes_count, conn_info, event);
     }
 
+    // Update the conn_info total written/read bytes.
+    switch (direction)
+    {
+    case kEgress:
+        conn_info->wr_bytes += bytes_count;
+        break;
+    case kIngress:
+        conn_info->rd_bytes += bytes_count;
+        break;
+    }
+}
+
+static inline __attribute__((__always_inline__)) void process_data_chunk(struct pt_regs *ctx, u64 id, enum traffic_direction_t direction, const struct data_args_t *args, int bytes_count)
+{
+    // check access to pointer before accessing them.
+    if (args->iovec == NULL)
+    {
+        return;
+    }
+
+    if (bytes_count <= 0)
+    {
+        return;
+    }
+
+    u32 pid = id >> 32;
+    u64 pid_fd = ((u64)pid << 32) | (u32)args->fd;
+
+    struct conn_info_t *conn_info = bpf_map_lookup_elem(&conn_info_map, &pid_fd);
+    if (conn_info == NULL)
+    {
+        // The FD being read/written does not represent an IPv4 socket FD.
+        return;
+    }
+    u32 kZero = 0;
+
+    struct socket_data_event_t *event = bpf_map_lookup_elem(&socket_data_event_buffer_heap, &kZero);
+    if (!event)
+    {
+        bpf_printk("[%llu]: process_data_chunk unable to allocate memory for data event...", bpf_ktime_get_ns());
+        return;
+    }
+
+    struct iovec iovecStructure, tempIovec;
+    if (bpf_probe_read_user(&tempIovec, sizeof(tempIovec), args->iovec))
+    {
+        bpf_printk("[sys_writev_exit]: Failed to read iovec at %p\n", args->iovec);
+        return;
+    }
+    else if (!is_http_connection(conn_info, tempIovec.iov_base, tempIovec.iov_len))
+    {
+        bpf_printk("[sys_writev_exit]: Not an http call %p\n", args->iovec);
+        return;
+    }
+    u32 totalBytes = 0;
+    for (int index = 0; totalBytes < bytes_count && index < 10; index++)
+    {
+        if (bpf_probe_read_user(&iovecStructure, sizeof(iovecStructure), args->iovec + index))
+        {
+            bpf_printk("[sys_writev_exit]: Failed to read iovec at %p\n", args->iovec + index);
+            break;
+        }
+        totalBytes += iovecStructure.iov_len;
+        event->timestamp_ns = bpf_ktime_get_ns();
+        event->direction = direction;
+        event->conn_id = conn_info->conn_id;
+        perf_submit_wrapper(ctx, direction, iovecStructure.iov_base, iovecStructure.iov_len, conn_info, event);
+    }
     // Update the conn_info total written/read bytes.
     switch (direction)
     {
