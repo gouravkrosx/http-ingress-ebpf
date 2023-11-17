@@ -19,4 +19,4 @@ else
 fi
 
 # Compile and run the ebpf program...
-go generate ./... && go run -exec "sudo -E" ./ebpf --pid 42064
+go generate ./... && go run -exec "sudo -E env ‘PATH=$PATH" ./ebpf --pid 42064
