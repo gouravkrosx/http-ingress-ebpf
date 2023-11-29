@@ -4,6 +4,7 @@ import (
 	"errors"
 	"flag"
 	"log"
+	"net/http"
 	"os"
 	"os/signal"
 	"strings"
@@ -37,6 +38,12 @@ func getlogger() *zap.Logger {
 }
 
 func main() {
+
+	// start a profiler
+	go func() {
+		log.Println(http.ListenAndServe("localhost:6060", nil))
+	}()
+
 	println("Ebpf Loader PID:", os.Getpid())
 
 	if err := settings.InitRealTimeOffset(); err != nil {
@@ -171,7 +178,7 @@ func main() {
 	}
 	defer sndr.Close()
 
-//Attaching a kprobe at the entry of recvfrom syscall
+	//Attaching a kprobe at the entry of recvfrom syscall
 	rcv, err := link.Kprobe("sys_recvfrom", objs.SyscallProbeEntryRecvfrom, nil)
 	if err != nil {
 		log.Fatalf("opening recvfrom kprobe: %s", err)
@@ -184,7 +191,6 @@ func main() {
 		log.Fatalf("opening recvfrom kretprobe: %s", err)
 	}
 	defer rcvr.Close()
-
 
 	// Open a Kprobe at the entry point of the kernel function and attach the
 	// pre-compiled program.
