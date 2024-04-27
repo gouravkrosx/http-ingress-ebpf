@@ -129,6 +129,24 @@ static inline __attribute__((__always_inline__)) bool is_http_connection(struct 
         res = true;
     }
 
+    // Check for OPTIONS
+    if (check[0] == 'O' && check[1] == 'P' && check[2] == 'T' && check[3] == 'I' && check[4] == 'O' && check[5] == 'N' && check[6] == 'S')
+    {
+        res = true;
+    }
+
+    // Check for TRACE
+    if (check[0] == 'T' && check[1] == 'R' && check[2] == 'A' && check[3] == 'C' && check[4] == 'E')
+    {
+        res = true;
+    }
+
+    // Check for CONNECT
+    if (check[0] == 'C' && check[1] == 'O' && check[2] == 'N' && check[3] == 'N' && check[4] == 'E' && check[5] == 'C' && check[6] == 'T')
+    {
+        res = true;
+    }
+
     // Add other HTTP request methods here if needed.
 
     if (res)
@@ -249,6 +267,9 @@ static inline __attribute__((__always_inline__)) void process_data(struct pt_reg
         event->conn_id = conn_info->conn_id;
 
         perf_submit_wrapper(ctx, direction, args->buf, bytes_count, conn_info, event);
+    }else
+    {
+        return;
     }
 
     // Update the conn_info total written/read bytes.
