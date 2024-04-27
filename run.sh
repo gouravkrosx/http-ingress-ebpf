@@ -1,5 +1,12 @@
 #! /bin/sh
 
+# Check for PID argument
+if [ -z "$1" ]; then
+  echo "Usage: $0 <pid>"
+  exit 1
+fi
+PID=$1
+
 # Check the machine architecture
 ARCH=$(uname -m)
 
@@ -19,4 +26,4 @@ else
 fi
 
 # Compile and run the ebpf program...
-go generate ./... && go run -exec "sudo -E env 'PATH=$PATH'" ./ebpf --pid 10456
+go generate ./... && go run -exec "sudo -E env 'PATH=$PATH'" ./ebpf --pid $PID

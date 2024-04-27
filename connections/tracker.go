@@ -312,7 +312,7 @@ func (conn *Tracker) AddDataEvent(event structs2.SocketDataEvent) {
 		conn.recvBytes += uint64(event.MsgSize)
 
 		//Handling multiple request on same connection to support connection:keep-alive
-		if !conn.firstRequest || conn.receivedResponse {
+		if conn.receivedResponse {
 			conn.currentSentBytesQ = append(conn.currentSentBytesQ, conn.sentBytes)
 			conn.sentBytes = 0
 
